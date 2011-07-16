@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{enumerate}
+
+\title{Written Set 2: Parsing}
+\author{Prakash Surya\\\\CS 143 - Compilers - Keith Schwarz}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Problem 1: LL(1)}
+
+\begin{enumerate}[i.]
+	\item Compute the FIRST sets for each of the nonterminals in this
+		grammar. Show your result.
+		\begin{enumerate}
+			\item FIRST(J) = $\epsilon$, , (an actual comma)
+			\item FIRST(I) = identifier
+			\item FIRST(Y) = $\epsilon$, implements
+			\item FIRST(X) = $\epsilon$, extends
+			\item FIRST(F) = $\epsilon$, final
+			\item FIRST(P) = $\epsilon$, public
+			\item FIRST(C) = FIRST(P) $\cup$ FIRST(F) $\cup$ class
+			               = public, final, class
+			\item FIRST(S) = FIRST(C) = public, final, class
+		\end{enumerate}
+	\item Compute the FOLLOW sets for each of the nonterminals in this
+		grammar. Show your result.
+		\begin{enumerate}
+			\item FOLLOW(S) = \$
+			\item FOLLOW(C) = \$
+			\item FOLLOW(P) = FIRST(F) $\cup$ class
+			                = final, class
+			\item FOLLOW(F) = class
+			\item FOLLOW(X) = FIRST(Y) $\cup$ FOLLOW(C)
+			                = implements, \$
+			\item FOLLOW(Y) = FOLLOW(C) = \$
+			\item FOLLOW(I) = FOLLOW(Y) = \$
+			\item FOLLOW(J) = FOLLOW(I) = \$
+		\end{enumerate}
+	\item Using your results from (i) and (ii), construct the LL(1) parser
+		table for this grammar. When indicating which productions should
+		be performed, please use our numbering system from above. Show
+		your result.
+
+		\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+			                                                                            \hline
+			  & public & final & class & identifier & extends & implements &  , & \$ \\ \hline
+			S &    1   &   1   &   1   &            &         &            &    &    \\ \hline
+			C &    2   &   2   &   2   &            &         &            &    &    \\ \hline
+			P &    3   &   4   &   4   &            &         &            &    &    \\ \hline
+			F &        &   5   &   6   &            &         &            &    &    \\ \hline
+			X &        &       &       &            &    7    &      8     &    &    \\ \hline
+			Y &        &       &       &            &    7    &      9     &    & 10 \\ \hline
+			I &        &       &       &     11     &         &            &    &    \\ \hline
+			J &        &       &       &            &         &            & 12 & 13 \\ \hline
+		\end{tabular}
+\end{enumerate}
+
+\end{document}
