@@ -57,4 +57,42 @@
 		\end{tabular}
 \end{enumerate}
 
+\section{Problem 2: LL(k)}
+
+\begin{enumerate}[i.]
+	\item Give an example of a grammar that is LL(2) but not LL(1). You
+		must explain why your grammar meets these criteria, but you don't
+		need to formally prove it.
+
+		The following example grammar is LL(2) but not LL(1):
+		\begin{enumerate}[(1)]
+			\item S $\to$ E
+			\item E $\to$ T + T
+			\item E $\to$ T - T
+			\item T $\to$ int
+		\end{enumerate}
+
+		The above grammar is not LL(1) because with just a single token
+		of lookahead, the expansion of E is ambiguous. A parser cannot
+		uniquely predict whether E should expand out to T + T or T - T.
+		For example, given the string: `int + int', an LL(1) parser
+		would expand S $\to$ E, but given it can only ``see'' the int
+		terminal, it cannot uniquely determine what E should expand out
+		to. Is it T + T, or T - T?
+
+		An LL(2) predictive parser, on the other hand, will ``see'' the
+		int along with the + symbol. Thus, the LL(2) parser can
+		uniquely determine that E should expand out to T + T in this
+		case. Then T $\to$ int, + $\to$ +, and finally T $\to$ int
+		again.
+
+		Essentially, this grammar \emph{is not} LL(1) because E can
+		expand out to two different productions, and each of these
+		productions have a common single token prefix. Although, this
+		grammar \emph{is} LL(2) because the two token prefixes for E
+		are unique (i.e. `int +' and `int -').
+
+	\item Prove that any LL(1) grammar is LL(2)
+\end{enumerate}
+
 \end{document}
