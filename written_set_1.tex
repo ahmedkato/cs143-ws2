@@ -125,4 +125,24 @@
 		LL(0).
 \end{enumerate}
 
+\section{Problem 4: Left Factoring}
+
+\begin{enumerate}[i.]
+	\item Explain, at a high level, why many grammars that are
+		left-factorable are not LL(1).
+
+		Many grammars that are left-factorable are not LL(1) because
+		they often contain nonterminals which can expand out to multiple
+		productions that share a common prefix. For example, in the
+		following:
+		\begin{enumerate}[(1)]
+			\item A $\to$ E + T
+			\item A $\to$ E
+		\end{enumerate}
+		both productions for A share the common prefix of E. Thus, if
+		an LL(1) parser has an A, and it's lookahead is in FIRST(E),
+		it has no way to decide whether it should expand A $\to$ E + T
+		or A $\to$ E.
+\end{enumerate}
+
 \end{document}
