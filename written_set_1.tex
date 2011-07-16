@@ -95,4 +95,32 @@
 	\item Prove that any LL(1) grammar is LL(2)
 \end{enumerate}
 
+\section{Problem 3: LL(0)}
+
+\begin{enumerate}
+	\item Describe the set of grammars that can be parsed with an LL(0)
+		parser. As a hint, LL(0) is an extremely weak method, and is
+		never used in compilers.
+
+		An LL(0) grammar is a grammar that can be parsed without ever
+		looking at any lookahead tokens. Each nonterminal has to be
+		able to be uniquely expanded out without knowing what the next
+		token will be. Because of this, each nonterminal can
+		essentially only have a single production associated with it.
+		This is because without any tokens of lookahead, an LL(0) parser
+		cannot make a decision on how to expand a given nonterminal if
+		it has multiple productions associated with it. For example, the
+		following grammar is LL(0):
+		\begin{enumerate}[(1)]
+			\item S $\to$ A
+			\item A $\to$ B C
+			\item B $\to$ class
+			\item C $\to$ identifier
+		\end{enumerate}
+		because each nonterminal can only be expanded out in a single
+		way. Thus, the fact that lookahead tokens are unnecessary to
+		uniquely expand out a nonterminal allow this grammar to be
+		LL(0).
+\end{enumerate}
+
 \end{document}
