@@ -148,6 +148,37 @@
 		LL(1). Make sure to explain why your grammar is LL(1).
 
 		% TODO: Add solution
+
+	\item Give an example of a grammar that is left-factorable that is
+		LL(2) but not LL(1). Make sure to explain why your grammar
+		meets these criteria.
+
+		The following grammar is LL(2) but not LL(1):
+		\begin{enumerate}[(1)]
+			\item S $\to$ E
+			\item E $\to$ T + T
+			\item E $\to$ T - T
+			\item T $\to$ int
+		\end{enumerate}
+		This grammar is not LL(1) because E can expand to two different
+		productions that share a common prefix. When the parsers has an
+		E, and the lookahead is an int, it cannot tell which production
+		to use to expand E. Although the grammar is not LL(1), it is
+		LL(2). This is because at the same point where the LL(1) parser
+		would become confused, the extra lookahead token an LL(2)
+		parser has clears this ambiguity. Now the parser will either
+		have the lookahead of `int +' or `int -' and be able to
+		unambiguously determine which production should be expanded.
+
+		This grammar is also left-factorable as the E productions could
+		be factored like so:
+		\begin{enumerate}[(1)]
+			\item S $\to$ E
+			\item E $\to$ TQ
+			\item Q $\to$ + T
+			\item Q $\to$ - T
+			\item T $\to$ int
+		\end{enumerate}
 \end{enumerate}
 
 \end{document}
