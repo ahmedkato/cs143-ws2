@@ -250,6 +250,27 @@ Below is a context-free grammar for strings of balanced parentheses:
 			5 & s3 & r3 & r3  \\ \hline
 			6 &    & r2 & r2  \\ \hline
 		\end{tabular}
+
+	\item Identify at least one entry in the parsing table that would be a
+		shift/reduce conflict in an LR(0) parser, or explain why one
+		does not exist.
+
+		One possible shift/reduct conflict an LR(0) parser would run
+		into, is state 3 of the LR(0) configurating set. Without
+		lookahead tokens, the parser would not know whether it should
+		reduce P based on P $\to$ $\epsilon$, or if it should shift in
+		an attempt to match P $\to$ (P)P
+
+	\item Identify at least one entry in the parsing table that would be a
+		reduce/reduce conflict in an LR(0) parser, or explain why one
+		does not exist.
+
+		There are not any states in the LR(0) configurating set that
+		would cause a reduce/reduce conflict. This is because there
+		aren't any states which have two possible reduce options
+		available. Each state in the LR(0) configurating set either has
+		only 1, or 0 possible ways to reduce, thus a reduce/reduce
+		conflict would not appear.
 \end{enumerate}
 
 \end{document}
