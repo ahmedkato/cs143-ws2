@@ -181,4 +181,52 @@
 		\end{enumerate}
 \end{enumerate}
 
+\section{Problem 5: SLR(1) Parsing}
+
+Below is a context-free grammar for strings of balanced parentheses:
+\begin{enumerate}[(1)]
+	\item S $\to$ P
+	\item P $\to$ (P)P
+	\item P $\to$ $\epsilon$
+\end{enumerate}
+
+\begin{enumerate}[i.]
+	\item Construct the LR(0) configurating sets for this grammar. Show
+		your result. As a hint, there are six total configurating sets.
+		Note that when dealing with the production P $\to$ $\epsilon$,
+		there is only one LR(0) item, which is P $\to$ $\cdot$
+
+		\begin{enumerate}[(1)]
+			\item \begin{enumerate}[]
+				\item S $\to$ $\cdot$ P
+				\item P $\to$ $\cdot$ (P)P
+				\item P $\to$ $\cdot$
+			\end{enumerate}
+
+			\item \begin{enumerate}[]
+				\item S $\to$ P $\cdot$
+			\end{enumerate}
+
+			\item \begin{enumerate}[]
+				\item P $\to$ ( $\cdot$ P)P
+				\item P $\to$ $\cdot$ (P)P
+				\item P $\to$ $\cdot$
+			\end{enumerate}
+
+			\item \begin{enumerate}[]
+				\item P $\to$ (P $\cdot$ )P
+			\end{enumerate}
+
+			\item \begin{enumerate}[]
+				\item P $\to$ (P) $\cdot$ P
+				\item P $\to$ $\cdot$ (P)P
+				\item P $\to$ $\cdot$
+			\end{enumerate}
+
+			\item \begin{enumerate}[]
+				\item P $\to$ (P)P $\cdot$
+			\end{enumerate}
+		\end{enumerate}
+\end{enumerate}
+
 \end{document}
