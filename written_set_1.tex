@@ -235,6 +235,21 @@ Below is a context-free grammar for strings of balanced parentheses:
 			\item FOLLOW(S) = \$
 			\item FOLLOW(P) = \$, )
 		\end{enumerate}
+
+	\item Using your results from (i) and (ii), construct an SLR(1) parsing
+		table for this grammar. Show your result. Note that the LR(0)
+		item P $\to$ $\cdot$ is a reduce item.
+
+		\begin{tabular}{|c|c|c|c|}
+		                             \hline
+			  &  ( &  ) & \$  \\ \hline
+			1 & s3 & r3 & r3  \\ \hline
+			2 &    &    & acc \\ \hline
+			3 & s3 & r3 & r3  \\ \hline
+			4 &    & s5 &     \\ \hline
+			5 & s3 & r3 & r3  \\ \hline
+			6 &    & r2 & r2  \\ \hline
+		\end{tabular}
 \end{enumerate}
 
 \end{document}
