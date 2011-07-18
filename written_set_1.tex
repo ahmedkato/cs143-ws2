@@ -363,6 +363,19 @@ Below is a context-free grammar for strings of balanced parentheses:
 		of the LR(0) configurating set. In this state, there is a
 		shift/reduce conflict. With 'a' as the lookahead, the parser
 		could either shift to go to state 4, or reduce on Y $\to$ a.
+
+	\item Using the LR(0) automaton, construct the augmented grammar that
+		you will use in the algorithm. Show your result.
+
+		\begin{enumerate}[(1)]
+			\item S$_1$ $\to$ X$_{1-2}$
+			\item X$_{1-2}$ $\to$ Y$_{1-5}$b
+			\item X$_{1-2}$ $\to$ aa
+			\item Y$_{1-5}$ $\to$ bY$_{7-9}$a
+			\item Y$_{1-5}$ $\to$ a
+			\item Y$_{7-9}$ $\to$ bY$_{7-9}$a
+			\item Y$_{7-9}$ $\to$ a
+		\end{enumerate}
 \end{enumerate}
 
 \end{document}
