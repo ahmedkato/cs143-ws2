@@ -386,6 +386,20 @@ Below is a context-free grammar for strings of balanced parentheses:
 			\item FOLLOW(Y$_{1-5}$) = b
 			\item FOLLOW(Y$_{7-9}$) = a
 		\end{enumerate}
+
+	\item Using these FOLLOW sets and the LR(0) automaton, construct the
+		LALR(1) lookaheads for each reduce item in the automaton. Show
+		your results. Note that there are a total of 6 reduce items in
+		the automaton.
+
+		\begin{tabular}{lcr}
+			In State  2: & S $\to$  X  $\cdot$ & [\$] \\
+			In State  3: & Y $\to$  a  $\cdot$ & [b]  \\
+			In State  4: & X $\to$ aa  $\cdot$ & [\$] \\
+			In State  6: & X $\to$ Yb  $\cdot$ & [\$] \\
+			In State  8: & Y $\to$  a  $\cdot$ & [a]  \\
+			In State 10: & Y $\to$ bYa $\cdot$ & [a]  \\
+		\end{tabular}
 \end{enumerate}
 
 \end{document}
