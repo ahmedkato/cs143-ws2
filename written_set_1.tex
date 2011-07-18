@@ -354,4 +354,15 @@ Below is a context-free grammar for strings of balanced parentheses:
 		\end{tabular}
 \end{enumerate}
 
+\section{Problem 8: LALR(1)-by-SLR(1)}
+
+\begin{enumerate}[i.]
+	\item Why is this grammar not SLR(1)?
+
+		One reason that keeps this grammar from being SLR(1) is state 3
+		of the LR(0) configurating set. In this state, there is a
+		shift/reduce conflict. With 'a' as the lookahead, the parser
+		could either shift to go to state 4, or reduce on Y $\to$ a.
+\end{enumerate}
+
 \end{document}
