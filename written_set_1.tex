@@ -400,6 +400,15 @@ Below is a context-free grammar for strings of balanced parentheses:
 			In State  8: & Y $\to$  a  $\cdot$ & [a]  \\
 			In State 10: & Y $\to$ bYa $\cdot$ & [a]  \\
 		\end{tabular}
+
+	\item Is this grammar LALR(1)? Why or why not?
+
+		Yes, this grammar is LALR(1) as the conflicts that were in the
+		SLR(1) automaton are resolved by the LALR(1) automaton. For
+		example, while in state 3, SLR(1) had a shift/reduce conflict.
+		In this LALR(1) automaton, this is gone as it knows to only
+		reduce Y $\to$ a while in this state if the next lookahead is a
+		`b' character. Otherwise it knows to shift.
 \end{enumerate}
 
 \end{document}
